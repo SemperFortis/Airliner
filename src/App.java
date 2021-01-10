@@ -9,42 +9,39 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         // We should prompt for name
         Airliner airline = new Airliner(10, 2);
-        Passenger passenger = new Passenger("Jason");
+        Passenger passenger = new Passenger();
 
-        System.out.print(
-                "Welcome to EXOTIC AIRLINES!\n\nTo continue, please enter (Q) to quit or (D) to display all available flights, (L) to display all your tickets: ");
+        // Extra array standards
+        // Utility.extra();
+        
+        System.out.println(airline);
+        Utility.prompt();
 
         boolean exited = false;
 
         while (!exited) {
             String input = scanner.next().toLowerCase();
 
-            if (input.equals("a")) {
-
+            if (input.equals("s")) {
+                passenger.getStats();
             } else if (input.equals("d")) {
-                // Display flights option
                 airline.displayFlights(scanner, passenger);
             } else if (input.equals("l")) {
-                // Display all the tickets the user has bought
                 passenger.displayTickets();
             } else if (input.equals("q")) {
-                // Exit
+                Utility.clear();
+
                 scanner.close();
                 exited = true;
-                System.out.println("Thank you for flying with AIRLINE NAME, have a nice trip.");
+
+                System.out.println("Thank you for flying with EXOTIC AIRLINES, have a nice trip.");
                 return;
             } else {
-                // Handle unknown options
-                System.out.println();
-                System.out.print("\nUnknown option, enter (Q) to quit or (D) to display all available flights, (L) to display all your tickets: ");
+                Utility.clear();
+                Utility.prompt();
             }
         }
 
         scanner.close();
-    }
-
-    private static void clear() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 }

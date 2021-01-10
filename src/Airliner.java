@@ -17,7 +17,7 @@ public class Airliner {
     }
 
     /**
-     * Displays a list of flights for the passenger to choose from
+     * Displays a list of tickets for the passenger to choose from
      * 
      * @param scanner the scanner object for taking input options
      * @param passenger the current passenger purchasing a ticket
@@ -58,13 +58,17 @@ public class Airliner {
             this.sellTicket(selectedTicket);
             passenger.buyTicket(this, selectedTicket);
         } catch (NullPointerException e) {
-            System.out.println(passenger.getName() + ", that is not a valid ticket!");
-            System.out.print(
-                    "\n\nTo continue, please enter (Q) to quit or (D) to display all available flights, (L) to display all your tickets: ");
+            Utility.clear();
+
+            System.out.println("That is not a valid ID!");
+
+            Utility.prompt();
         } catch (InputMismatchException e) {
-            System.out.println(passenger.getName() + ", that is not a valid ID!");
-            System.out.print(
-                    "\n\nTo continue, please enter (Q) to quit or (D) to display all available flights, (L) to display all your tickets: ");
+            Utility.clear();
+
+            System.out.println("That is not a valid ID!");
+            
+            Utility.prompt();
         }
     }
 
@@ -113,5 +117,18 @@ public class Airliner {
         }
 
         return tickets;
+    }
+
+    public int getAmountOfFlights() {
+        return this.flights.length;
+    }
+
+    public int getAmountOfTickets() {
+        return this.ticketCount;
+    }
+
+    public String toString() {
+        return "Welcome to EXOTIC AIRLINES! We currently have " + getAmountOfFlights() + " flights and "
+                + getAmountOfTickets() + " tickets available."; 
     }
 }
