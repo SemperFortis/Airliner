@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class Airliner {
+    private static int views = 0;
     private Flight[] flights;
     private int ticketCount;
     private int earnings = 0;
@@ -117,6 +118,24 @@ public class Airliner {
         }
 
         return tickets;
+    }
+
+    /**
+     * Increments the times a user visited the airliner
+     * 
+     * @return void
+     */
+    public static void incrementView() {
+        Airliner.views++;
+    }
+
+    /**
+     * Gets the amount of times the user visited the airliner
+     * 
+     * @return the amount of times the user visited the airliner
+     */
+    public static int getViews() {
+        return Airliner.views;
     }
 
     public int getAmountOfFlights() {

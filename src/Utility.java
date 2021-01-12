@@ -3,6 +3,7 @@ public class Utility {
      * Adds a ticket to the array
      * 
      * Precondition - tickets does not contain a null value
+     * Poscondition - the length of the new array is one greater than the previous length
      * 
      * @param tickets the ticket array
      * @param ticket  the ticket to add to the array
@@ -23,6 +24,7 @@ public class Utility {
     /**
      * Removes a ticket from the array
      * 
+     * Precondition - tickets does not contain a null value
      * Postcondition - array does not contain a ticket with the supplied ticket id to remove
      * 
      * @param tickets the ticket array

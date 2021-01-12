@@ -6,12 +6,17 @@ public class Passenger {
      * Purchases a ticket from the airline, removing the ticket from the airline and
      * add it to the passenger
      * 
+     * Precondition - Passenger has enough funds
+     * Postcondition - Ticket is added to the passenger
+     * 
      * @param airline the airline where to purchase the ticket from
      * @param ticket  the ticket to purchase
      * @return void
      */
     public void buyTicket(Airliner airline, Ticket ticket) {
         Utility.clear();
+
+        Airliner.incrementView();
 
         if (this.funds < ticket.getPrice()) {
             System.out.println("You do not have enough funds to purchase ticket #" + ticket.getId() + " to "
@@ -66,7 +71,7 @@ public class Passenger {
 
         Utility.prompt();
     }
-
+ 
     /**
      * Displays the average, median, least, and most expensive of the tickets
      * purchased
@@ -105,6 +110,7 @@ public class Passenger {
             }
         }
 
+        System.out.println("You have visited EXOTIC AIRLINES " + Airliner.getViews() + " time(s).");
         System.out.println("The total cost of the tickets you purchased is $" + total);
         System.out.println("The average cost of the tickets you purchased is $" + average);
         System.out.println("The lowest cost of the ticket you purchased is $" + lowest);
