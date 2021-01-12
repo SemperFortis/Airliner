@@ -3,7 +3,7 @@ public class Utility {
      * Adds a ticket to the array
      * 
      * Precondition - tickets does not contain a null value
-     * Poscondition - the length of the new array is one greater than the previous length
+     * Postcondition - the length of the new array is one greater than the previous length
      * 
      * @param tickets the ticket array
      * @param ticket  the ticket to add to the array
@@ -44,7 +44,7 @@ public class Utility {
     }
 
     /**
-     * Computes the mode, shifts elements to the right, and reverses elements of an array
+     * Computes the mode, shifts elements to the right, reverses elements, and determines duplicates of an array
      * 
      * @return void
      */
@@ -110,15 +110,30 @@ public class Utility {
         for (int x : reversed) {
             System.out.print(Integer.valueOf(x) + " ");
         }
+
+        System.out.println();
+
+        // Check duplicate 7s
+        boolean duplicate = false;
+
+        for (int x : array) {
+            if (x == 7) {
+                duplicate = true;
+            }
+        }
+
+        System.out.println("Duplicate 7? - " + (duplicate ? "yes" : "no"));
     }
 
     /**
      * Sorts an array in ascending order
      * 
+     * Precondition - array length is greater than 0
+     * Postcondition - returns an array sorted in ascending order
+     *
      * @param array the array to sort
      * @return the sorted array
      */
-
     private static int[] sort(int[] array) {
         int[] copy = array;
 

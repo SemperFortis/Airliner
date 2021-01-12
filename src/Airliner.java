@@ -17,8 +17,15 @@ public class Airliner {
         }
     }
 
+    public Airliner(Flight[] flights) {
+        this.flights = flights;
+    }
+
     /**
      * Displays a list of tickets for the passenger to choose from
+     * 
+     * Precondition - flights is not empty
+     * Postcondition - adds a ticket to the user and removes the ticket from the airline if the ticket selected is found
      * 
      * @param scanner the scanner object for taking input options
      * @param passenger the current passenger purchasing a ticket
@@ -75,7 +82,10 @@ public class Airliner {
 
     /**
      * Removes a ticket from the airliner and adds it to the passenger bought tickets
-     * 
+     *      
+     * Precondition - tickets does not contain a null value
+     * Postcondition - ticket is removed from the tickets array
+     *
      * @param ticket the ticket to sell
      * @return void
      */
@@ -138,14 +148,29 @@ public class Airliner {
         return Airliner.views;
     }
 
+    /**
+     * Gets the amount of flights for the airline
+     * 
+     * @return the number of flights available
+     */
     public int getAmountOfFlights() {
         return this.flights.length;
     }
 
+    /**
+     * Gets the amount of tickets for the airline
+     * 
+     * @return the number of tickets available
+     */
     public int getAmountOfTickets() {
         return this.ticketCount;
     }
 
+    /**
+     * Prints out the airline object in a human readable form
+     * 
+     * @return the string representation of the airline object
+     */
     public String toString() {
         return "Welcome to EXOTIC AIRLINES! We currently have " + getAmountOfFlights() + " flights and "
                 + getAmountOfTickets() + " tickets available."; 
